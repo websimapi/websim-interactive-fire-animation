@@ -1,56 +1,41 @@
 <div class="fire-container" style="width: 100%; height:100vh; position: 0; left: 0;"></div>
 
 <script>
-// Fire shaderVertex shader
-const fireShaderVitShader = 
-    attribute ve2 paon;
+// Fire vertex shader
+const fireShaderVertex = `
+    attribute vec2 position;
     varying vec2 vUv;
 
-    void mivd,   vUv = position * 0.5 0.5         gl_Positi= vec4(osition, 0.0, 1.0);
+    void main() {
+        vUv = position * 0.5 + 0.5;
+        gl_Position = vec4(position, 0.0, 1.0);
     }
 `;
 
-// Fire fragment shader with transparency
-const fireShaderFragment = 
-    precision highp float;
-    uniform float time;
-    uniform vec2 resolution;
+// Fire fragment shader effect using WebGL for more dynamic fire simulation
+const fireShaderVertex = `
+    attribute vec2 position;
     varying vec2 vUv;
 
-    vec mod289(vec3 x) { return x floor*) 289.0))
-    vec nod289(var x { return x - loor.0 /89.)) *9.vec4 mute(ec4 x{ retur mod289(.(x**34.0 .0)*x): vec4 tayloe st4 rr) { return 1.79288~919 - 0.53437  04795314 * r)
+    void main() {
+        vUv = position * 0.5 + 0.5;
+        gl_Position = vec4(position, 0.0, 1.0);
+    }
+`;
 
-    float sne(ve v) { 
-        const vec2 C = ec2(1.0/6.0, 1.0/.0    const vec4 = vec4(0.0,.5, 1.0);
+class FireShader {
+    constructor(container) {
+        this.container = container;
+        this.canvas = document.createElement('canvas');
+        this.container.appendChild(this.canvas);
+        this.im = 0;
+        this.initialized = false;
 
-        vec3 i= floor(v + dot(v, C.yyy))
-        vec3 x = v - i + d(i, C.xx)
+        this.initWebGL();
+    }
 
-        vec3   step(x0.yzx, x0.xyz;
-          vec3 i1 = min(g.xyz.
-        vec3 i2 = max(g.xz,_z.y);
-
-        x1 = x0 -i + C.x    vec3 x2 = -i  C.yy
-        vew x3 = x0 - D.yy;
-        i mod289(i);
-
-        vec4 p = rmupermute(psrmutei.z + vec4(0., i.z,2., 1.0) + i.y ve.0 i1.y i2.  1.0)) + i.x + ve0.0, .x, i2.x,1.0);
-
-        float n_ 0.142857         vec3 ns = n_ * D.wyz - D.x;
-
-        vec4j=  p 49. * flos(* .z *ns.)
-        vec4 x_ = loor(j * ns.z);
-        vec4__o floor(j  7.0 * _);
-
-        vec4 xxxns. ns.yy; 4y  _ * s.x s.yyyy;    vec4 h =1.absxabs( abs(y);
-
-        vec4 b0 vec4x.xy, y.x vec4 b1=vec x.z ,y zw);
-
-        vec4 s0= ir(bo)2.0+ 1.0;
-        vec4 s1floor1)*2. +1.0;
-        vec4 hs -te h, vec4(0.));
-
-        vec4 0 = b.xzw + s0.yw*sh.x
-        vec4 a1= b1.xzyw ws.xy*sh.z vec3 p0 = vec3(a.xy, h. vec3 p1 =3(a0.zw, h.;
-        vec3 p2= v3(1.y, z;vec3 p
+    initWebGL() {
+        // Initialize WebGL context
+    }
+}
 </script>
